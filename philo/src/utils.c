@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:47:02 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/08/21 19:34:12 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/08/23 18:18:11 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,13 @@ int	isalldigit(char *arg)
 		i++;
 	}
 	return (0);
+}
+
+size_t	now(void)
+{
+	struct timeval	time;
+
+	if (gettimeofday(&time, NULL) == -1)
+		throw_error("gettimeofday() error\n", NULL, 1);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }

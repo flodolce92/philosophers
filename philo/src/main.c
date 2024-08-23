@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:43:15 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/08/22 17:52:07 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/08/23 18:18:04 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	flip_table(t_table *table)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < table->n_philo)
@@ -71,7 +71,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (init(&table, argc, argv))
 		return (1);
-	throw_error("eh boh", &table, 1);
-	// start_dinner(&table);
+	start_dinner(&table);
+	flip_table(&table);
 	return (0);
 }

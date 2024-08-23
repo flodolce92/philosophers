@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:48:25 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/08/22 17:54:33 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/08/23 18:18:38 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_philo
 	pthread_t		thread;
 	int				eaten_meals;
 	int				eating;
+	int				last_meal;
 	t_fork			*left_fork;
 	t_fork			*right_fork;
 	pthread_mutex_t	philo_lock;
@@ -48,6 +49,7 @@ typedef struct s_table
 	int				max_meals;
 	t_philo			*philos;
 	t_fork			*forks;
+	int				start_time;
 	int				death_flag;
 	pthread_mutex_t	print_lock;
 	pthread_mutex_t	dead_lock;
@@ -55,6 +57,7 @@ typedef struct s_table
 
 int		ft_atoi(const char *str);
 int		isalldigit(char *arg);
+size_t	now(void);
 int		throw_error(char *error, t_table *table, int exit_code);
 void	flip_table(t_table *table);
 
@@ -62,5 +65,6 @@ int		check_args(int argc, char **argv);
 
 int		init(t_table *table, int argc, char **argv);
 int		init_table(t_table *table, int argc, char **argv);
+void	start_dinner(t_table *table);
 
 #endif

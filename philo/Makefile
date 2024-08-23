@@ -6,7 +6,7 @@
 #    By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/16 18:05:10 by flo-dolc          #+#    #+#              #
-#    Updated: 2024/08/22 16:35:40 by flo-dolc         ###   ########.fr        #
+#    Updated: 2024/08/23 17:00:11 by flo-dolc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ SRCS_DIR	=	src/
 
 SRC			=	main.c \
 				utils.c \
-				init.c
+				init.c \
+				threads.c
 
 SRCS		=	$(addprefix $(SRCS_DIR), $(SRC))
 
