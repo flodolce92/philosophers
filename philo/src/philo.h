@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:48:25 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/08/23 18:18:38 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/10/25 09:25:32 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,10 @@ int		check_args(int argc, char **argv);
 int		init(t_table *table, int argc, char **argv);
 int		init_table(t_table *table, int argc, char **argv);
 void	start_dinner(t_table *table);
+
+void	p_eat(t_philo *philo);
+void	p_sleep(t_philo *philo);
+void	p_think(t_philo *philo);
+void	p_death(t_philo *philo);
 
 #endif
