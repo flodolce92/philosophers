@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:43:15 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/08/23 18:18:04 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/11/09 16:30:30 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,19 @@ int	check_args(int argc, char **argv)
 	return (0);
 }
 
+void	print_usage(void)
+{
+	printf("usage: philo \t[number_of_philosophers] \
+[time_to_die] [time_to_eat] [time_to_sleep]\n\
+\t\t[number_of_times_each_philosopher_must_eat]\n");
+}
+
 int	main(int argc, char **argv)
 {
 	t_table	table;
 
 	if (check_args(argc, argv))
-		return (1);
+		return (print_usage(), 1);
 	if (init(&table, argc, argv))
 		return (1);
 	start_dinner(&table);
