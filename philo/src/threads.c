@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:40:38 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/10/25 09:50:17 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/11/20 16:42:51 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	*routine_philo(void *p)
 			break;
 		}
 		pthread_mutex_unlock(&philo->table->dead_lock);
-		p_eat(philo);
+		if (p_eat(philo) == 1)
+			continue ;
 		p_sleep(philo);
 		p_think(philo);
 	}
@@ -43,6 +44,13 @@ void	start_dinner(t_table *table)
 	{
 		if (pthread_create(&table->philos[i].thread, NULL, routine_philo, &table->philos[i]))
 			throw_error("pthread_create failed", table, 1);
+		i++;
+	}
+	i = 0;
+	while (i < table->n_philo)
+	{
+		if (pthread_join(table->philos[i].thread, NULL))
+			throw_error("pthread_join failed", table, 1);
 		i++;
 	}
 }

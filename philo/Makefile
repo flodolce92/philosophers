@@ -6,7 +6,7 @@
 #    By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/16 18:05:10 by flo-dolc          #+#    #+#              #
-#    Updated: 2024/11/09 16:38:18 by flo-dolc         ###   ########.fr        #
+#    Updated: 2024/11/13 14:55:36 by flo-dolc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC			=	main.c \
 				init.c \
 				threads.c \
 				actions.c \
+				actions_utils.c \
 
 SRCS		=	$(addprefix $(SRCS_DIR), $(SRC))
 
