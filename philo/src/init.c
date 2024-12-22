@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:50:26 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/12/22 02:22:16 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/12/22 16:59:11 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int	init_philos(t_table *table)
 	while (i < table->n_philo)
 	{
 		table->philos[i].id = i + 1;
-		table->philos[i].eaten_meals = 0;
-		table->philos[i].eating = 0;
 		table->philos[i].last_meal = 0;
 		table->philos[i].eta_death = 0;
 		pthread_mutex_init(&table->forks[i].fork_lock, NULL);
@@ -51,7 +49,6 @@ int	init_table(t_table *table, int argc, char **argv)
 	table->forks = (t_fork *) malloc(sizeof(t_fork) * table->n_philo);
 	if (!table->forks)
 		return (1);
-	table->start_time = 0;
 	table->death_flag = 0;
 	pthread_mutex_init(&table->print_lock, NULL);
 	pthread_mutex_init(&table->dead_lock, NULL);

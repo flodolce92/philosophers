@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:55:58 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/12/22 16:10:46 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/12/22 16:45:00 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ int	sleep_till_death(size_t time, t_philo *philo)
 
 int	check_death(t_philo *philo)
 {
+	if (philo->table->death_flag == 1)
+	{
+		pthread_mutex_unlock(&philo->table->dead_lock);
+		return (1);
+	}
 	if (philo->eta_death < now())
 	{
 		p_death(philo);
