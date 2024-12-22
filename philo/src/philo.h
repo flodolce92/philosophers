@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:48:25 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/12/22 16:58:59 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/12/22 18:29:29 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int		take_fork(t_fork *fork, t_philo *philo);
 void	drop_forks(t_philo *philo);
 int		check_death(t_philo *philo);
 int		sleep_till_death(size_t time, t_philo *philo);
+void	message(char *msg, t_philo *philo);
 
 int		p_eat(t_philo *philo);
 int		p_sleep(t_philo *philo);

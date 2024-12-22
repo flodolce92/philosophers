@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:40:38 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/12/22 16:58:55 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/12/22 18:38:43 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ void	*routine_philo(void *p)
 	while (eaten_meals != philo->table->max_meals)
 	{
 		pthread_mutex_lock(&philo->table->dead_lock);
+		// message("locked dead_lock\n", philo);
 		if (check_death(philo))
 			return (NULL);
 		pthread_mutex_unlock(&philo->table->dead_lock);
+		// message("unlocked dead_lock\n", philo);
 		if (p_eat(philo) || p_sleep(philo) || p_think(philo))
 			return (NULL);
 		if (philo->table->max_meals != -1)
