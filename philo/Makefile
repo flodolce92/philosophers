@@ -6,7 +6,7 @@
 #    By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/16 18:05:10 by flo-dolc          #+#    #+#              #
-#    Updated: 2024/11/13 14:55:36 by flo-dolc         ###   ########.fr        #
+#    Updated: 2024/12/22 22:40:28 by flo-dolc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,12 @@ RESET		=	\033[0m
 
 SRCS_DIR	=	src/
 
-SRC			=	main.c \
-				utils.c \
-				init.c \
-				threads.c \
+SRC			=	actions_utils.c \
 				actions.c \
-				actions_utils.c \
+				init.c \
+				main.c \
+				threads.c \
+				utils.c \
 
 SRCS		=	$(addprefix $(SRCS_DIR), $(SRC))
 
@@ -36,7 +36,7 @@ NAME		=	philo
 
 CC			=	gcc
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -g
 
 RM			=	rm -f
 
@@ -50,7 +50,7 @@ $(OBJS_DIR):
 
 $(OBJS_DIR)%.o:	$(SRCS_DIR)%.c | $(OBJS_DIR)
 				@echo "$(BLUE)Compiling $<...$(RESET)"
-				@$(CC) $(CFLAGS) -c -g $< -o $@ $(INCLUDES)
+				@$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 
 $(NAME):		$(OBJS_DIR) $(OBJS)
 				@echo "$(GREEN)Linking objects and creating $(NAME)...$(RESET)"

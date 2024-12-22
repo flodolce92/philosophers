@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:48:25 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/12/22 18:29:29 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/12/22 22:24:23 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ int		ft_atoi(const char *str);
 int		isalldigit(char *arg);
 size_t	now(void);
 int		throw_error(char *error, t_table *table, int exit_code);
-void	flip_table(t_table *table);
-
-int		check_args(int argc, char **argv);
+void	print_usage(void);
 
 int		init(t_table *table, int argc, char **argv);
 int		init_table(t_table *table, int argc, char **argv);
+void	flip_table(t_table *table);
+
 void	start_dinner(t_table *table);
 int		take_fork(t_fork *fork, t_philo *philo);
 void	drop_forks(t_philo *philo);

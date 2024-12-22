@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:43:15 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/11/09 16:30:30 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/12/22 22:42:27 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,8 @@ void	flip_table(t_table *table)
 		free(table->forks);
 }
 
-int	throw_error(char *error, t_table *table, int exit_code)
-{
-	printf("Error %d: %s\n", exit_code, error);
-	if (table)
-		flip_table(table);
-	return (exit_code);
-}
-
-/*	argvs[1-5]:
+/*
+	argvs[1-5]:
 	number_of_philosophers
 	time_to_die
 	time_to_eat
@@ -61,13 +54,6 @@ int	check_args(int argc, char **argv)
 	if (argv[5] && (isalldigit(argv[5]) || ft_atoi(argv[5]) < 0))
 		return (printf("Invalid number of meals\n"), 1);
 	return (0);
-}
-
-void	print_usage(void)
-{
-	printf("usage: philo \t[number_of_philosophers] \
-[time_to_die] [time_to_eat] [time_to_sleep]\n\
-\t\t[number_of_times_each_philosopher_must_eat]\n");
 }
 
 int	main(int argc, char **argv)

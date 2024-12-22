@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:47:02 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/08/23 18:18:11 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/12/22 22:21:11 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,19 @@ size_t	now(void)
 	if (gettimeofday(&time, NULL) == -1)
 		throw_error("gettimeofday() error\n", NULL, 1);
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
+}
+
+void	print_usage(void)
+{
+	printf("usage: philo \t[number_of_philosophers] \
+[time_to_die] [time_to_eat] [time_to_sleep]\n\
+\t\t[number_of_times_each_philosopher_must_eat]\n");
+}
+
+int	throw_error(char *error, t_table *table, int exit_code)
+{
+	printf("Error %d: %s\n", exit_code, error);
+	if (table)
+		flip_table(table);
+	return (exit_code);
 }
