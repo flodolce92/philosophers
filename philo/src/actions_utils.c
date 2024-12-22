@@ -6,20 +6,24 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:55:58 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/12/22 03:08:26 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/12/22 16:10:46 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	sleep_till_death(long time, t_philo *philo)
+int	sleep_till_death(size_t time, t_philo *philo)
 {
-	long	start;
+	size_t	start;
 
 	start = now();
 	if (start + time > philo->eta_death)
 	{
-		// boh che aspetto?
+		time = philo->eta_death - start;
+		usleep(time * 1000);
+		pthread_mutex_lock(&philo->table->dead_lock);
+		p_death(philo);
+		pthread_mutex_unlock(&philo->table->dead_lock);
 		return (1);
 	}
 	usleep(time * 1000);
