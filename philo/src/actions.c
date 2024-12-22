@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 09:10:56 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/12/22 22:15:52 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/12/22 22:47:32 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	p_eat(t_philo *philo)
 {
 	if (take_fork(philo->right_fork, philo) \
 	|| take_fork(philo->left_fork, philo))
-		return (message("DEATH BY FKN FORK\n", philo), 1);
+		return (1);
 	philo->eta_death = now() + philo->table->time_to_die;
 	pthread_mutex_lock(&philo->table->dead_lock);
 	if (check_death(philo))

@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:55:58 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/12/22 22:14:42 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/12/22 22:47:24 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	sleep_till_death(size_t time, t_philo *philo)
 		pthread_mutex_lock(&philo->table->dead_lock);
 		p_death(philo);
 		pthread_mutex_unlock(&philo->table->dead_lock);
-		return (message("DEATH BY TIME\n", philo), 1);
+		return (1);
 	}
 	usleep(time * 1000);
 	return (0);
@@ -44,13 +44,13 @@ int	check_death(t_philo *philo)
 	if (philo->table->death_flag == 1)
 	{
 		pthread_mutex_unlock(&philo->table->dead_lock);
-		return (message("DEATH BY FLAG\n", philo), 1);
+		return (1);
 	}
 	else if (philo->eta_death < now())
 	{
 		p_death(philo);
 		pthread_mutex_unlock(&philo->table->dead_lock);
-		return (message("DEATH BY TIME\n", philo), 1);
+		return (1);
 	}
 	return (0);
 }
@@ -68,7 +68,7 @@ int	take_fork(t_fork *fork, t_philo *philo)
 		}
 		pthread_mutex_unlock(&fork->fork_lock);
 		if (sleep_till_death(1, philo))
-			return (message("DEATH BY FORK ABSENCE\n", philo), 1);
+			return (1);
 	}
 	pthread_mutex_lock(&philo->table->dead_lock);
 	if (check_death(philo))
