@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:40:38 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/12/22 23:01:17 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/12/22 23:17:01 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,22 @@
 void	*routine_philo(void *p)
 {
 	t_philo	*philo;
-	int		eaten_meals;
 
 	philo = (t_philo *) p;
-	eaten_meals = 0;
 	philo->eta_death = now() + philo->table->time_to_die;
 	if (philo->id % 2 == 0)
 	{
 		if (sleep_till_death(philo->table->time_to_eat / 3, philo))
 			return (NULL);
 	}
-	while (eaten_meals != philo->table->max_meals)
+	while (philo->eaten_meals != philo->table->max_meals)
 	{
 		if (check_death(philo))
 			return (NULL);
 		if (p_eat(philo) || p_sleep(philo) || p_think(philo))
 			return (NULL);
 		if (philo->table->max_meals != -1)
-			eaten_meals++;
+			philo->eaten_meals++;
 	}
 	return (NULL);
 }

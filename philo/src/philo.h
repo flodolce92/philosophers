@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:48:25 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/12/22 22:24:23 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/12/22 23:15:53 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,10 @@ typedef struct s_philo
 {
 	int				id;
 	pthread_t		thread;
-	int				last_meal;
 	size_t			eta_death;
+	int				eaten_meals;
 	t_fork			*left_fork;
 	t_fork			*right_fork;
-	pthread_mutex_t	philo_lock;
 	t_table			*table;
 }	t_philo;
 

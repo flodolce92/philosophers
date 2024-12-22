@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:43:15 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/12/22 22:42:27 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/12/22 23:13:49 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	flip_table(t_table *table)
 	while (i < table->n_philo)
 	{
 		pthread_mutex_destroy(&table->forks[i].fork_lock);
-		pthread_mutex_destroy(&table->philos[i].philo_lock);
 		i++;
 	}
 	pthread_mutex_destroy(&table->print_lock);
