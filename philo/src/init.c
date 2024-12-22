@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:50:26 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/08/23 18:19:18 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/12/22 02:22:16 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	init_philos(t_table *table)
 		table->philos[i].eaten_meals = 0;
 		table->philos[i].eating = 0;
 		table->philos[i].last_meal = 0;
+		table->philos[i].eta_death = 0;
 		pthread_mutex_init(&table->forks[i].fork_lock, NULL);
 		table->forks[i].in_use = 0;
 		table->philos[i].left_fork = &(table->forks[i]);
