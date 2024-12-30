@@ -1,3 +1,5 @@
 # Philosophers
 
-## This project is still *Work In Progress*.
+## 108/100
+
+**Peer evaluations only**
